@@ -1,0 +1,14 @@
+# Use the official Spark image from Docker Hub
+FROM bitnami/spark:latest
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Command to run the anonymization script
+CMD ["spark-submit", "script.py"]
